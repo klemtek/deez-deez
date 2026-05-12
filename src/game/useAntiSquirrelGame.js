@@ -505,6 +505,50 @@ function drawAimGuide(ctx, game) {
   ctx.restore();
 }
 
+function drawBazookaRecoil(ctx, shotAge) {
+  if (shotAge >= 0.24) return;
+
+  const recoil = Math.sin((1 - shotAge / 0.24) * Math.PI) * 0.9;
+  const kick = recoil * 14;
+
+  ctx.save();
+  ctx.translate(-kick, recoil * 2);
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+
+  const barrel = ctx.createLinearGradient(210, 493, 328, 526);
+  barrel.addColorStop(0, '#1d2029');
+  barrel.addColorStop(0.45, '#545a62');
+  barrel.addColorStop(1, '#141720');
+
+  ctx.fillStyle = barrel;
+  ctx.strokeStyle = '#0a0d13';
+  ctx.lineWidth = 5;
+  ctx.beginPath();
+  ctx.roundRect(214, 493, 110, 32, 15);
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.fillStyle = '#222734';
+  ctx.strokeStyle = '#070a0f';
+  ctx.lineWidth = 4;
+  ctx.beginPath();
+  ctx.roundRect(300, 486, 34, 46, 12);
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.strokeStyle = '#52f1ff';
+  ctx.lineWidth = 4;
+  ctx.globalAlpha = 0.45 + recoil * 0.4;
+  ctx.beginPath();
+  ctx.moveTo(326, 501);
+  ctx.lineTo(354 + recoil * 20, 491 - recoil * 7);
+  ctx.moveTo(326, 516);
+  ctx.lineTo(356 + recoil * 17, 524 + recoil * 6);
+  ctx.stroke();
+  ctx.restore();
+}
+
 function drawScene(ctx, assets, game, ready) {
   ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
 
@@ -601,6 +645,7 @@ function drawScene(ctx, assets, game, ready) {
 
   const shotAge = performance.now() / 1000 - game.lastShotAt;
   drawSprite(ctx, assets.sprites, SPRITES.playerIdle, PLAYER_CENTER.x, PLAYER_CENTER.y, PLAYER_SIZE.w, PLAYER_SIZE.h);
+  drawBazookaRecoil(ctx, shotAge);
 
   ctx.save();
   ctx.globalAlpha = 0.78;

@@ -599,28 +599,28 @@ canvas {
   }
 
   .top-hud {
-    top: max(8px, env(safe-area-inset-top));
-    left: max(8px, env(safe-area-inset-left));
-    right: max(8px, env(safe-area-inset-right));
-    gap: 6px;
+    top: max(5px, env(safe-area-inset-top));
+    left: max(6px, env(safe-area-inset-left));
+    right: max(6px, env(safe-area-inset-right));
+    gap: 5px;
   }
 
   .bottom-hud {
-    top: calc(max(8px, env(safe-area-inset-top)) + 58px);
-    left: max(8px, env(safe-area-inset-left));
+    top: max(5px, env(safe-area-inset-top));
+    left: clamp(250px, 39vw, 380px);
     bottom: auto;
-    gap: 6px;
-    align-items: flex-start;
+    gap: 5px;
+    align-items: center;
     transform: none;
   }
 
   .hud-panel {
-    min-height: 44px;
-    padding: 6px 8px;
+    min-height: 42px;
+    padding: 5px 7px;
   }
 
   .score-panel {
-    min-width: 110px;
+    min-width: 84px;
   }
 
   .bombs-panel {
@@ -628,38 +628,82 @@ canvas {
   }
 
   .ammo-panel {
-    width: min(390px, 64vw);
+    width: 112px;
     grid-template-columns: 1fr;
-    gap: 5px;
+    gap: 4px;
   }
 
   .ammo-copy {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
+    min-width: 0;
   }
 
   .ammo-rail {
-    grid-template-columns: repeat(7, minmax(12px, 1fr));
+    display: none;
   }
 
-  .round {
-    height: 17px;
-    font-size: 0.55rem;
+  .reload-track {
+    height: 4px;
+    margin-top: 0;
+  }
+
+  .compact {
+    min-width: 56px;
+  }
+
+  .bottom-hud > .compact:nth-of-type(2) {
+    display: none;
+  }
+
+  .hearts {
+    gap: 4px;
+    padding: 5px 0 2px;
+  }
+
+  .heart {
+    width: 17px;
+    height: 16px;
+  }
+
+  .bombs {
+    gap: 4px;
+  }
+
+  .bomb-slot {
+    width: 25px;
+    height: 27px;
+  }
+
+  .bomb-slot > span {
+    width: 14px;
+    height: 23px;
+    box-shadow:
+      0 0 0 2px rgba(255, 234, 138, 0.14),
+      0 3px 0 rgba(0, 0, 0, 0.22);
   }
 
   .touch-controls {
     display: flex;
-    right: max(8px, env(safe-area-inset-right));
-    bottom: max(8px, env(safe-area-inset-bottom));
+    right: max(7px, env(safe-area-inset-right));
+    bottom: max(6px, env(safe-area-inset-bottom));
+    gap: 6px;
+  }
+
+  .touch-controls button {
+    min-width: 72px;
+    min-height: 44px;
+    padding: 0 9px;
+    font-size: 0.72rem;
+  }
+
+  .touch-controls .fire-control {
+    min-width: 88px;
   }
 }
 
 @media (max-width: 560px) {
-  .compact:nth-of-type(2) {
-    display: none;
-  }
-
   .hud-label {
     font-size: 0.58rem;
   }
@@ -668,14 +712,39 @@ canvas {
     font-size: 0.96rem;
   }
 
-  .bomb-slot {
-    width: 27px;
-    height: 27px;
+  .touch-controls button {
+    min-width: 64px;
+    font-size: 0.68rem;
+  }
+}
+
+@media (orientation: landscape) and (pointer: coarse) and (max-height: 430px) {
+  .hud-label {
+    font-size: 0.55rem;
   }
 
-  .touch-controls button {
-    min-width: 66px;
-    font-size: 0.68rem;
+  .hud strong {
+    font-size: 0.95rem;
+  }
+
+  .score-panel {
+    min-width: 78px;
+  }
+
+  .hearts-panel {
+    min-width: 94px;
+  }
+
+  .bombs-panel {
+    min-width: 118px;
+  }
+
+  .ammo-panel {
+    width: 98px;
+  }
+
+  .bottom-hud {
+    left: clamp(250px, 39vw, 360px);
   }
 }
 
