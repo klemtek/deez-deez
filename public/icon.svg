@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Deez Deez icon">
+  <defs>
+    <radialGradient id="g" cx="48%" cy="44%" r="70%">
+      <stop offset="0" stop-color="#4cf6ff"/>
+      <stop offset="0.44" stop-color="#1d9bff"/>
+      <stop offset="1" stop-color="#12142b"/>
+    </radialGradient>
+    <linearGradient id="a" x1="32" x2="96" y1="24" y2="104">
+      <stop offset="0" stop-color="#f5c06e"/>
+      <stop offset="1" stop-color="#8f4b24"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="22" fill="#12142b"/>
+  <circle cx="64" cy="64" r="52" fill="url(#g)" opacity=".34"/>
+  <path d="M64 20c19 14 31 34 31 55 0 20-12 34-31 34S33 95 33 75c0-21 12-41 31-55Z" fill="url(#a)" stroke="#26170e" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M45 56h38M41 73h46M48 90h32" stroke="#4f2a16" stroke-width="6" stroke-linecap="round"/>
+  <path d="M50 32c8 7 13 17 13 28M77 35c-7 8-11 18-11 29" fill="none" stroke="#4f2a16" stroke-width="5" stroke-linecap="round"/>
+  <text x="64" y="81" text-anchor="middle" font-family="Arial Black, Impact, sans-serif" font-size="48" fill="#eaffff" stroke="#0875c9" stroke-width="5" paint-order="stroke">D</text>
+</svg>
